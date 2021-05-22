@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import styles from '../styles/Layout.module.scss'
 
 const Layout = ({
     title = 'DJ Events',
@@ -13,7 +14,7 @@ const Layout = ({
                 <meta name="description" content={description} />
                 <meta name="keywords" content={keywords} />
             </Head>
-            <div>{children}</div>
+            <div className={styles.container}>{children}</div>
         </div>
     )
 }

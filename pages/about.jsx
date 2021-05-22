@@ -1,14 +1,12 @@
 import React from 'react'
+import Layout from '../components/Layout'
 
 const AboutPage = () => {
     return (
-        <div>
-            <h1>
-                ABOUT
-            </h1>
+        <Layout title="About DJ Events">
+            <h1>ABOUT</h1>
             <p> This is an app to find the latest DJ and other musical events</p>
-            <p>Version: 1.1.0</p>
-        </div>
+        </Layout>
     )
 }
 
