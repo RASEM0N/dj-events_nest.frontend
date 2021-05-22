@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Header from './Header'
 import styles from '@/styles/Layout.module.scss'
 import Footer from './Footer'
-import Showcase from './Showcase'
+import Showcase from '../Showcase'
 import { useRouter } from 'next/router'
 
 const Layout = ({

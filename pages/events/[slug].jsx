@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '@/components/Layout'
+import Layout from '@/components/common/Layout'
 import axios from 'axios'
 import { API_URL_EVENTS } from '@/config/API'
 import styles from '@/styles/Event.module.scss'

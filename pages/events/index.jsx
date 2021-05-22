@@ -1,5 +1,5 @@
-import Layout from '@/components/Layout'
-import EventItem from '@/components/EventItem'
+import Layout from '@/components/common/Layout'
+import EventItem from '@/components/Event/EventItem'
 import axios from 'axios'
 import { API_URL_EVENTS } from '@/config/API'
 

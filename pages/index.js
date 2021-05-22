@@ -1,7 +1,7 @@
-import Layout from '@/components/Layout'
+import Layout from '@/components/common/Layout'
 import axios from 'axios'
 import { API_URL_EVENTS } from '@/config/API'
-import EventItem from '@/components/EventItem'
+import EventItem from '@/components/Event/EventItem'
 import Link from 'next/link'
 
 const HomePage = ({ events }) => {
