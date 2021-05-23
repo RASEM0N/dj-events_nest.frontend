@@ -5,6 +5,8 @@ import EventItem from '@/components/Event/EventItem'
 import Link from 'next/link'
 
 const HomePage = ({ events }) => {
+    console.log('---------------------------------------------------------')
+
     return (
         <Layout>
             <h1>Upcoming Events</h1>
@@ -24,11 +26,13 @@ const HomePage = ({ events }) => {
 export default HomePage
 
 export const getStaticProps = async () => {
-    const data = await axios.get(API_URL_EVENTS).then((resp) => resp.data.data)
+    const data = await axios
+        .get(API_URL_EVENTS + '?_sort=date:ASC&_limit=3')
+        .then((resp) => resp.data)
 
     return {
         props: {
-            events: data.slice(0, 3),
+            events: data,
         },
         revalidate: 1,
     }

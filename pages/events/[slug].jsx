@@ -28,12 +28,16 @@ const EventPage = ({ evt }) => {
                 </div>
 
                 <span>
-                    {evt.date} at {evt.time}
+                    {new Date(evt.date).toLocaleDateString('ru-RU')} at {evt.time}
                 </span>
                 <h1>{evt.name}</h1>
                 {evt.image && (
                     <div className={styles.image}>
-                        <Image src={evt.image} width={960} height={600} />
+                        <Image
+                            src={evt.image?.formats?.medium?.url || '/images/event-default.png'}
+                            width={960}
+                            height={600}
+                        />
                     </div>
                 )}
 
@@ -56,7 +60,7 @@ export default EventPage
 
 // https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation
 export const getStaticPaths = async () => {
-    const data = await axios.get(API_URL_EVENTS).then((resp) => resp.data.data)
+    const data = await axios.get(API_URL_EVENTS).then((resp) => resp.data)
 
     const paths = data.map((evt) => ({
         params: {
@@ -71,7 +75,7 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params: { slug } }) => {
-    const data = await axios.get(`${API_URL_EVENTS}/${slug}`).then((resp) => resp.data.data)
+    const data = await axios.get(API_URL_EVENTS + `?slug=${slug}`).then((resp) => resp.data)
     console.log(slug)
     return {
         props: {

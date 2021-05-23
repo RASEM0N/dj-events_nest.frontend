@@ -1,28 +1,32 @@
 .event {
-  margin: 20px 0;
-  padding: 13px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    padding: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.1);
+
+    span {
+        font-size: 0.8rem;
+    }
 }
 
 .img {
-  flex: 1;
-  margin: 10px;
+    flex: 1;
+    margin: 10px;
 }
 
 .info {
-  flex: 2;
+    flex: 2;
 }
 
 @media (max-width: 600px) {
-  .event {
-    flex-direction: column;
-    text-align: center;
-  }
+    .event {
+        flex-direction: column;
+        text-align: center;
+    }
 
-  .info {
-    margin-bottom: 20px;
-  }
+    .info {
+        margin-bottom: 20px;
+    }
 }
