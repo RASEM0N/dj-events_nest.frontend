@@ -4,7 +4,8 @@ import styles from '@/styles/Add.module.scss'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const AddEventsPage = () => {
     const [values, setValues] = useState({
