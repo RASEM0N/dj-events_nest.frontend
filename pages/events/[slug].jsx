@@ -76,7 +76,6 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params: { slug } }) => {
     const data = await axios.get(API_URL_EVENTS + `?slug=${slug}`).then((resp) => resp.data)
-    console.log(slug)
     return {
         props: {
             evt: data[0],

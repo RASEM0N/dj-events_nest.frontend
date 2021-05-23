@@ -5,8 +5,6 @@ import EventItem from '@/components/Event/EventItem'
 import Link from 'next/link'
 
 const HomePage = ({ events }) => {
-    console.log('---------------------------------------------------------')
-
     return (
         <Layout>
             <h1>Upcoming Events</h1>
