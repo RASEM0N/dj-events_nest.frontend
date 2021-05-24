@@ -9,6 +9,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import axios from 'axios'
 import moment from 'moment'
+import Modal from '@/components/Modal'
+import ImageUpload from '@/components/ImageUpload'
 
 const EditEventPage = ({ evt }) => {
     const [values, setValues] = useState({
@@ -21,6 +23,15 @@ const EditEventPage = ({ evt }) => {
         description: evt.description,
     })
     const [imagePreview, setImagePreview] = useState(evt.image?.formats?.thumbnail?.url || null)
+    const [showModel, setShowModel] = useState(false)
+
+    const imageUploaded = async (e) => {
+        const res = await fetch(API_URL_EVENTS + `/${evt.id}`)
+        const data = await res.json()
+
+        setImagePreview(data.image?.formats?.thumbnail?.url)
+        setShowModel(false)
+    }
 
     const router = useRouter()
 
@@ -146,8 +157,13 @@ const EditEventPage = ({ evt }) => {
                 </div>
             )}
             <div>
-                <button className="btn-secondary">Upload Image</button>
+                <button className="btn-secondary" onClick={() => setShowModel(true)}>
+                    Upload Image
+                </button>
             </div>
+            <Modal show={showModel} onClose={() => setShowModel(false)}>
+                <ImageUpload imageUploaded={imageUploaded} evtId={evt.id} />
+            </Modal>
         </Layout>
     )
 }
